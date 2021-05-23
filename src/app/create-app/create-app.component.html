@@ -1,0 +1,162 @@
+<html>
+    <head>
+        <title>Create Flight</title>
+        <script>
+            function setValueToCode()
+                {
+                    var el = document.getElementById('Name').value;
+                    alert(el);
+                    
+                    if(el=='INDIGO')
+                     {
+                        document.getElementById('Code').value = "GE";
+                     }
+                     if(el=='SPICEJET')
+                     {
+                        document.getElementById("Code").value = 'SG-';
+                     }
+                     if(el=='AIRASIA')
+                     {
+                        document.getElementById("Code").value = 'I5-';
+                     }
+                     if(el=='GOAIR')
+                     {
+                        document.getElementById("Code").value = 'G8-';
+                     }
+                     if(el=='JETAIRWAYS')
+                     {
+                        document.getElementById("Code").value = '9W-';
+                     }
+                     if(el=='AIRINDIA')
+                     {
+                        document.getElementById("Code").value = 'AI-';
+                     }
+                     else{
+                        document.getElementById("Code").value = 'def';
+                     }
+                 }
+   
+        </script>
+        <style>
+            body{
+                background-color: midnightblue;
+            }
+            h1{
+                text-align: center;
+                font-family: fantasy;
+                color: aliceblue;
+                font-size: 60px;
+            }
+            .container{
+                text-align: center;
+            }
+            input[type=text]{
+                height: 40px;
+                width: 200px;
+                float: initial;
+                               
+                       
+            }
+            label{
+                font-size: 40px;
+                color: wheat;
+                size: 50%;
+                
+            }
+            button{
+                display: inline-block;
+        background-color: #7b38d8;
+        border-radius: 10px;
+        
+        text-align: center;
+        font-size: 28px;
+        width: 220px;
+        
+        
+        cursor: pointer;
+        margin: 5px;
+            }
+            button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+      }
+      button span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+      }
+      
+      button:hover {
+        background-color: #f7c2f9;
+      }
+      button:hover span {
+        padding-right: 25px;
+      }
+      button:hover span:after {
+        opacity: 1;
+        right: 0;
+      }
+      div{
+          color: red;
+          font-size: larger;
+      }
+            
+
+        </style>
+    </head>
+    <body>
+        <h1>Create Flight</h1>
+        <br><br>
+        <div class="container">
+            <form [formGroup]="requiredForm">
+            <table align="center">
+                <tr>
+                    <td><label for="name">Provider Name:</label>&nbsp;&nbsp; </td>
+                    <td><input type="text" formControlName="name" id="Name" name="providerName" [(ngModel)]="provider.name" maxlength="10"></td>
+                    <div *ngIf="isValidInput('name')" class="alert alert-danger">
+                        <div *ngIf="requiredForm.controls['name'].errors?.required">
+                        Name cannot be empty!
+                        </div>
+                        <div *ngIf="requiredForm.controls['name'].errors?.pattern">
+                        Enter any one of the following INDIGO, SPICEJET, AIRASIA , GOAIR, JETAIRWAYS, AIRINDIA!
+                        </div>
+                    </div>
+                    
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td><label for="code">Provider Code:</label>&nbsp;&nbsp;&nbsp; </td>
+                    <td><input type="text" formControlName="code" id="Code" name="providerCode" [(ngModel)]="provider.code" value="{{provider.code}}" readonly></td>
+                    <div *ngIf="valueAutoComplete()" class="alert alert-danger"></div>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td><label for="type">Provider Type:</label>&nbsp;&nbsp;&nbsp; </td>
+                    <td><input type="text" formControlName="type" name="providerType" [(ngModel)]="provider.type" maxlength="13"></td>
+                    <div *ngIf="isValidInput('type')" class="alert alert-danger">
+                        <div *ngIf="requiredForm.controls['type'].errors?.required">
+                        Type cannot be empty!
+                        </div>
+                        <div *ngIf="requiredForm.controls['type'].errors?.pattern">
+                        Enter Domestic or International!
+                        </div>
+                    </div>
+                </tr>
+            </table>
+                
+               
+              <br>
+                <button type="button" [disabled]="!requiredForm.valid" (click)="addProvider()">Insert Flight</button>
+                <p style="color: coral;font-size: x-large;">{{msg}}</p>
+                
+            </form>
+          </div>
+          
+
+    </body>
+</html>

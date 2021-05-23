@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>View Flight</title>
+        <style>
+            body{
+                background-color: midnightblue;
+            }
+            h1{
+                text-align: center;
+                font-family: fantasy;
+                color: aliceblue;
+                font-size: 60px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Flights List</h1>
+        <table id="providers" class="center">
+            <tr>
+                <th>S/N</th>
+                <th>Provider Name</th>
+                <th>Provider Code</th>
+                <th>Provider Type</th>
+             </tr>
+             <tr *ngFor="let provider of providers">
+                 <td>{{provider.id}}</td>
+                 <td>{{provider.name}}</td>
+                 <td>{{provider.code}}</td>
+                 <td>{{provider.type}}</td>
+
+             </tr>
+        </table>
+
+    </body>
+</html>

@@ -1,0 +1,14 @@
+body {
+    background-color: midnightblue !important;
+  }
+  h2{
+    color: darkkhaki;
+    text-align: center;
+    font-size: 60px;
+    font-style: italic;
+  }
+  p{
+    color: darkkhaki;
+    font-size: 40px;
+    text-align: justify;
+  }

@@ -1,0 +1,21 @@
+table, th, td {
+    border: 3px solid white;
+    border-collapse: collapse;
+    color: wheat;
+    width: 100%;
+    text-align: center;
+    padding: 8px;
+    table-layout: fixed;
+  }
+  th{
+      font-size: xx-large;
+      font-style: italic;
+  }
+  td{
+      font-size: x-large;
+  }
+  
+  table.center {
+    margin-left: auto; 
+    margin-right: auto;
+  }
