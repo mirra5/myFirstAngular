@@ -28,7 +28,7 @@ export class DeleteAppComponent implements OnInit {
       code: ['', [Validators.required,
         Validators.pattern('(GE-|SG-|I5-|G8-|9W-|AI-)')]],
       type: ['', [Validators.required,
-        Validators.pattern('(Domestic|International)')]]
+        Validators.pattern('(DOMESTIC|INTERNATIONAL)')]]
       
     });
  }
@@ -65,7 +65,7 @@ export class DeleteAppComponent implements OnInit {
       }
       else{
         console.log(this.num);
-        this.msg="Entered code and type is not available in DB. Hence cannot be deleted! ";
+        this.msg="Entered Code & Type combination is not available in DB. Hence cannot be deleted! ";
         return this.msg;
       } });
       

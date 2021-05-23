@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import {BackendService} from './backend.service'; 
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FilterPipe } from './view-app/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     DeleteAppComponent,
     ModifyAppComponent,
     ViewAppComponent,
-    HomeComponent
+    HomeComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

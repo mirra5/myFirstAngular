@@ -32,7 +32,7 @@ export class CreateAppComponent implements OnInit {
       name: ['', [Validators.required,
         Validators.pattern('(INDIGO|SPICEJET|AIRASIA|GOAIR|JETAIRWAYS|AIRINDIA)')]],
       type: ['', [Validators.required,
-        Validators.pattern('(Domestic|International)')]]
+        Validators.pattern('(DOMESTIC|INTERNATIONAL)')]]
       
     });
  }
@@ -79,6 +79,7 @@ export class CreateAppComponent implements OnInit {
 
   addProvider() {
     
+
     
     const data = {
       name: this.provider.name,      

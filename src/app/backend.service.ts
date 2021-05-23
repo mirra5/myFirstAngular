@@ -13,37 +13,37 @@ export class BackendService implements InMemoryDbService{
         id: 1,
         name:  'INDIGO', 
         code: 'GE-', 
-        type: 'Domestic' 
+        type: 'DOMESTIC' 
       },
       {
         id: 2,
         name:  'SPICEJET', 
         code: 'SG-', 
-        type: 'International' 
+        type: 'INTERNATIONAL' 
       },
       {
         id: 3,
         name:  'AIRASIA', 
         code: 'I5-', 
-        type: 'Domestic'  
+        type: 'DOMESTIC'  
       },
       {
         id: 4,
         name:  'GOAIR', 
         code: 'G8-', 
-        type: 'International' 
+        type: 'INTERNATIONAL' 
       },
       {
         id: 5,
         name:  'JETAIRWAYS', 
         code: '9W-', 
-        type: 'Domestic' 
+        type: 'DOMESTIC' 
       },
       {
         id: 6,
         name:  'AIRINDIA', 
         code: 'AI-', 
-        type: 'International' 
+        type: 'INTERNATIONAL' 
       }
         
       ]

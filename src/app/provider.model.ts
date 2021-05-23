@@ -1,6 +1,6 @@
 export interface Provider {
     id: number;
-    name: string;
-    code: string;
-    type: string;
+    name: any;
+    code: any;
+    type: any;
   }

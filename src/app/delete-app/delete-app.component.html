@@ -95,7 +95,7 @@
                 <tr></tr>
                 <tr>
                     <td><label for="type">Provider Type:</label>&nbsp;&nbsp;&nbsp; </td>
-                    <td><input type="text" formControlName="type" name="providerType" [(ngModel)]="provider.type" maxlength="13"></td>
+                    <td><input type="text" oninput="this.value = this.value.toUpperCase()" formControlName="type" name="providerType" [(ngModel)]="provider.type" maxlength="13"></td>
                     <div *ngIf="isValidInput('type')" class="alert alert-danger">
                         <div *ngIf="requiredForm.controls['type'].errors?.required">
                         Type cannot be empty!

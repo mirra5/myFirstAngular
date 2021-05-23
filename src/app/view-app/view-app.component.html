@@ -11,10 +11,22 @@
                 color: aliceblue;
                 font-size: 60px;
             }
+            input[type=text]{
+                height: 35px;
+                width: 200px;
+                float: initial;                               
+                   
+            }
+            span{
+                color: beige;
+                font-size: 50px;
+                text-align: center;
+            }
         </style>
     </head>
     <body>
         <h1>Flights List</h1>
+        <span>Filter by Type: <input type="text" [(ngModel)]="searchText"><br><br></span>
         <table id="providers" class="center">
             <tr>
                 <th>S/N</th>
@@ -22,7 +34,7 @@
                 <th>Provider Code</th>
                 <th>Provider Type</th>
              </tr>
-             <tr *ngFor="let provider of providers">
+             <tr *ngFor="let provider of providers | filter : searchText">
                  <td>{{provider.id}}</td>
                  <td>{{provider.name}}</td>
                  <td>{{provider.code}}</td>

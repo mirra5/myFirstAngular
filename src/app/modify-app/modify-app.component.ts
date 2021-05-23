@@ -35,7 +35,7 @@ export class ModifyAppComponent implements OnInit {
         Validators.pattern('(GE-|SG-|I5-|G8-|9W-|AI-)')]],
       updateOn: blur,
       type: ['', [Validators.required,
-        Validators.pattern('(Domestic|International)')]],
+        Validators.pattern('(DOMESTIC|INTERNATIONAL)')]],
         
     });
  }
@@ -85,25 +85,35 @@ export class ModifyAppComponent implements OnInit {
     this.datacheck="false";
     this.msgReturn="";
 
-    
-        this.providers.forEach(element => {
-          if(element.code == data.code && element.type==data.type){
-            this.datacheck="true";
-          }
-          else if(element.code==data.code){
-            data.name=element.name;
-            data.id=element.id;
-            this.providerService.editProvider(data).subscribe(response => console.log(response));
-            this.num=element.id;
-          }
-          
-        });
+    for(let element of this.providers){
+      if(element.code == data.code && element.type==data.type){
+        console.log("first if "+element.code+" "+element.type);
+        this.datacheck="true";
+        break;
+      }
+      else if(element.code==data.code){
+        console.log("second if "+element.code+" "+element.type);
+        this.datacheck="available";
+        data.name=element.name;
+        data.id=element.id;
+        
+        this.num=element.id;
+        
+      }
       
-      if(this.datacheck=="false"){
+    }
+      
+      
+      if(this.datacheck=="available"){
+        this.providerService.editProvider(data).subscribe(response => console.log(response));
         this.router.navigate(['']);
       }
+      else if(this.datacheck=="true"){
+        this.msgReturn="Entered code and type is already available in DB!!";       
+        return this.msgReturn;
+      }
       else{        
-        this.msgReturn="Entered code and type is already available in DB!!";
+        this.msgReturn="Entered code is not available in DB!!";
         return this.msgReturn;
       }
    

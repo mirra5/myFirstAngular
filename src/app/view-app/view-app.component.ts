@@ -9,7 +9,7 @@ import {Provider} from '../provider.model';
 })
 export class ViewAppComponent implements OnInit {
   
-
+  searchText:any;
   providers: Provider[] = [];
   constructor(private providerService: ProviderService) { }
 

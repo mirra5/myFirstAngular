@@ -116,8 +116,8 @@
             <form [formGroup]="requiredForm">
             <table align="center">
                 <tr>
-                    <td><label for="name">Provider Name:</label>&nbsp;&nbsp; </td>
-                    <td><input type="text" formControlName="name" id="Name" name="providerName" [(ngModel)]="provider.name" maxlength="10"></td>
+                    <td><label for="name">Provider Name:</label>&nbsp;&nbsp;</td>
+                    <td><input type="text" oninput="this.value = this.value.toUpperCase()" formControlName="name" id="Name" name="providerName" [(ngModel)]="provider.name" maxlength="10"></td>
                     <div *ngIf="isValidInput('name')" class="alert alert-danger">
                         <div *ngIf="requiredForm.controls['name'].errors?.required">
                         Name cannot be empty!
@@ -137,7 +137,7 @@
                 <tr></tr>
                 <tr>
                     <td><label for="type">Provider Type:</label>&nbsp;&nbsp;&nbsp; </td>
-                    <td><input type="text" formControlName="type" name="providerType" [(ngModel)]="provider.type" maxlength="13"></td>
+                    <td><input type="text" oninput="this.value = this.value.toUpperCase()" formControlName="type" name="providerType" [(ngModel)]="provider.type" maxlength="13"></td>
                     <div *ngIf="isValidInput('type')" class="alert alert-danger">
                         <div *ngIf="requiredForm.controls['type'].errors?.required">
                         Type cannot be empty!
